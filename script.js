@@ -28,25 +28,24 @@ function playRound(humanChoice, computerChoice) {
   const humanSelection = getHumanChoice();
   const computerSelection = getComputerChoice();
 
-  if (humanSelection === computerSelection) {
-    console.log("It's a tie, ladies and gentleman!");
-  } else if (humanSelection === "rock" && computerSelection === "scissors") {
-    console.log("You win! Rock beats Scissors.");
-    humanScore += 1;
-  } else if (humanSelection === "paper" && computerSelection === "rock") {
-    console.log("You win! Paper beats Rock.");
-    humanScore += 1;
-  } else if (humanSelection === "scissors" && computerSelection === "paper") {
-    console.log("You win! Scissors beats Paper.");
-    humanScore += 1;
-  } else if (humanSelection === "rock" && computerSelection === "paper") {
-    console.log("You lose! Paper beats Rock.");
-    computerScore += 1;
-  } else if (humanSelection === "paper" && computerSelection === "scissors") {
-    console.log("You lose! Scissors beats Paper.");
-    computerScore += 1;
-  } else if (humanChoice === "scissors" && computerChoice === "rock") {
-    console.log("You lose! Rock beats Scissors.");
-    computerScore += 1;
+  if (humanChoice === computerChoice) {
+    console.log(
+      "It's a tie, ladies and gentleman! They both chose ${humanChoice}.",
+    );
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice == "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    humanScore++;
+    console.log("You win! ${humanchoice} beats ${computerChoice}.");
+  } else {
+    computerScore++;
+    console.log("You lose! ${computerChoice} beats ${humanChoice}.");
   }
 }
+
+//Write the logic to play the entire game
+//The game will play 5 rounds
+
+function playGame() {}
