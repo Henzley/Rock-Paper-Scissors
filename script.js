@@ -24,28 +24,36 @@ function getHumanChoice() {
 
 //Write logic to play a single round of rock, paper, scissors
 //These parameters are used to take the human and computer choices as arguments
-function playRound(humanChoice, computerChoice) {
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-
-  if (humanChoice === computerChoice) {
-    console.log(
-      "It's a tie, ladies and gentleman! They both chose ${humanChoice}.",
-    );
-  } else if (
-    (humanChoice === "rock" && computerChoice === "scissors") ||
-    (humanChoice === "paper" && computerChoice == "rock") ||
-    (humanChoice === "scissors" && computerChoice === "paper")
-  ) {
-    humanScore++;
-    console.log("You win! ${humanchoice} beats ${computerChoice}.");
-  } else {
-    computerScore++;
-    console.log("You lose! ${computerChoice} beats ${humanChoice}.");
-  }
-}
 
 //Write the logic to play the entire game
 //The game will play 5 rounds
+function playGame() {
+  function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+      console.log(
+        "It's a tie, ladies and gentleman! They both chose ${humanChoice}.",
+      );
+    } else if (
+      (humanChoice === "rock" && computerChoice === "scissors") ||
+      (humanChoice === "paper" && computerChoice == "rock") ||
+      (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+      humanScore++;
+      console.log("You win! ${humanchoice} beats ${computerChoice}.");
+    } else {
+      computerScore++;
+      console.log("You lose! ${computerChoice} beats ${humanChoice}.");
+    }
 
-function playGame() {}
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+  }
+
+  //Loop to play 5 round of rock, paper, scissors
+  if (playRound() <= 5) {
+    playRound(humanSelection, computerSelection);
+  }
+
+  //call the function to start the game
+  playGame();
+}
