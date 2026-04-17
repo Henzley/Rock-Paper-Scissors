@@ -31,7 +31,7 @@ function playGame() {
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
       console.log(
-        "It's a tie, ladies and gentleman! They both chose ${humanChoice}.",
+        `It's a tie, ladies and gentleman! They both chose ${humanChoice}.`,
       );
     } else if (
       (humanChoice === "rock" && computerChoice === "scissors") ||
@@ -39,10 +39,10 @@ function playGame() {
       (humanChoice === "scissors" && computerChoice === "paper")
     ) {
       humanScore++;
-      console.log("You win! ${humanchoice} beats ${computerChoice}.");
+      console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
     } else {
       computerScore++;
-      console.log("You lose! ${computerChoice} beats ${humanChoice}.");
+      console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
     }
 
     const humanSelection = getHumanChoice();
@@ -57,3 +57,4 @@ function playGame() {
   //call the function to start the game
   playGame();
 }
+playGame();
