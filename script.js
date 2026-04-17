@@ -21,3 +21,32 @@ function getHumanChoice() {
   ).toLowerCase();
   return humanChoice;
 }
+
+//Write logic to play a single round of rock, paper, scissors
+//These parameters are used to take the human and computer choices as arguments
+function playRound(humanChoice, computerChoice) {
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+
+  if (humanSelection === computerSelection) {
+    console.log("It's a tie, ladies and gentleman!");
+  } else if (humanSelection === "rock" && computerSelection === "scissors") {
+    console.log("You win! Rock beats Scissors.");
+    humanScore += 1;
+  } else if (humanSelection === "paper" && computerSelection === "rock") {
+    console.log("You win! Paper beats Rock.");
+    humanScore += 1;
+  } else if (humanSelection === "scissors" && computerSelection === "paper") {
+    console.log("You win! Scissors beats Paper.");
+    humanScore += 1;
+  } else if (humanSelection === "rock" && computerSelection === "paper") {
+    console.log("You lose! Paper beats Rock.");
+    computerScore += 1;
+  } else if (humanSelection === "paper" && computerSelection === "scissors") {
+    console.log("You lose! Scissors beats Paper.");
+    computerScore += 1;
+  } else if (humanChoice === "scissors" && computerChoice === "rock") {
+    console.log("You lose! Rock beats Scissors.");
+    computerScore += 1;
+  }
+}
