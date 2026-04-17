@@ -44,17 +44,24 @@ function playGame() {
       computerScore++;
       console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
     }
-
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
   }
 
   //Loop to play 5 round of rock, paper, scissors
-  if (playRound() <= 5) {
-    playRound(humanSelection, computerSelection);
+  for (let rounds = 0; rounds < 5; rounds++) {
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
   }
-
-  //call the function to start the game
-  playGame();
+  console.log(`Your score is ${humanScore}`);
+  console.log(`The computer score is ${computerScore}`);
+  if (humanScore > computerScore) {
+    console.log("Congratulations! You beat the computer");
+  } else if (computerScore > humanScore) {
+    console.log("The computer wins this round!");
+  } else {
+    console.log("It ends in a draw!");
+  }
 }
+
+//call the function to start the game
 playGame();
