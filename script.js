@@ -3,11 +3,11 @@ let computerScore = 0;
 
 //Write a function that gets the computer's choice
 function getComputerChoice() {
-  //Getting a random number between 1 and 3 to assign rock, paper, or scissors
-  let randomNum = Math.floor(Math.random() * (3 - 1) + 1);
-  if (randomNum === 1) {
+  //Getting a random number between 0,1 or 2 to assign rock, paper, or scissors
+  let randomNum = Math.floor(Math.random() * 3);
+  if (randomNum === 0) {
     return "rock";
-  } else if (randomNum === 2) {
+  } else if (randomNum === 1) {
     return "paper";
   } else {
     return "scissors";
@@ -15,18 +15,14 @@ function getComputerChoice() {
 }
 
 //Write a function that gets the human's choice
-function getHumanChoice() {
+/* function getHumanChoice() {
   let humanChoice = prompt(
     "Please enter rock, paper, or scissors:",
   ).toLowerCase();
   return humanChoice;
-}
-
-//Write logic to play a single round of rock, paper, scissors
-//These parameters are used to take the human and computer choices as arguments
+} */
 
 //Write the logic to play the entire game
-//The game will play 5 rounds
 function playGame() {
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -46,12 +42,31 @@ function playGame() {
     }
   }
 
+  //Create event listeners for the button the user clicks
+  const rockButton = document.querySelector("#rock");
+  rockButton.addEventListener("click", () => {
+    const computerChoice = getComputerChoice();
+    playRound("rock", computerChoice);
+  });
+
+  const paperButton = document.querySelector("#paper");
+  paperButton.addEventListener("click", () => {
+    const computerChoice = getComputerChoice();
+    playRound("paper", computerChoice);
+  });
+
+  const scissorsButton = document.querySelector("#scissors");
+  scissorsButton.addEventListener("click", () => {
+    const computerChoice = getComputerChoice();
+    playRound("scissors", computerChoice);
+  });
+
   //Loop to play 5 round of rock, paper, scissors
-  for (let rounds = 0; rounds < 5; rounds++) {
+  /* for (let rounds = 0; rounds < 5; rounds++) {
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
-  }
+  } */
   console.log(`Your score is ${humanScore}`);
   console.log(`The computer score is ${computerScore}`);
   if (humanScore > computerScore) {
