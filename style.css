@@ -1,0 +1,17 @@
+body {
+  margin-top: 50px;
+  background-color: purple;
+  text-align: center;
+}
+
+#buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+}
